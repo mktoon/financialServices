@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Financial Services Dashboard</h1>
+        <a href="{{ url_for('index') }}" class="btn">Home</a>
+    </header>
+    <main>
+        <section class="summary">
+            <div class="summary-item">
+                <h2>Total Customers</h2>
+                <p>{{ total_customers }}</p>
+            </div>
+            <div class="summary-item">
+                <h2>Total Accounts</h2>
+                <p>{{ total_accounts }}</p>
+            </div>
+            <div class="summary-item">
+                <h2>Total Balance</h2>
+                <p>${{ total_balance }}</p>
+            </div>
+        </section>
+        
+        <section class="recent-transactions">
+            <h2>Recent Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Account ID</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in recent_transactions %}
+                        <tr>
+                            <td>{{ transaction.TransactionID }}</td>
+                            <td>{{ transaction.AccountID }}</td>
+                            <td>{{ transaction.TransactionType }}</td>
+                            <td>${{ transaction.Amount }}</td>
+                            <td>{{ transaction.TransactionDate }}</td>
+                            <td>{{ transaction.Status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

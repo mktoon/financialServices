@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Transfer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Create Transfer</h1>
+    <form action="{{ url_for('transfer') }}" method="post">
+        <label for="Amount">Amount:</label>
+        <input type="number" name="Amount" step="0.01" required><br>
+        <label for="FromAccountID">From Account ID:</label>
+        <input type="number" name="FromAccountID" required><br>
+        <label for="ToAccountID">To Account ID:</label>
+        <input type="number" name="ToAccountID" required><br>
+        <button type="submit">Submit Transfer</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Transaction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Delete Transaction</h1>
+    </header>
+    <main>
+        <p>Are you sure you want to delete transaction ID: {{ transaction.TransactionID }}?</p>
+        <form action="{{ url_for('delete_transaction', transaction_id=transaction.TransactionID) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-delete">Yes, Delete</button>
+            <a href="{{ url_for('view_transactions') }}" class="btn btn-cancel">Cancel</a>
+        </form>
+    </main>
+</body>
+</html>

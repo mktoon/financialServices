@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Notification Management</h1>
+        <a href="{{ url_for('create_notification') }}" class="btn">Create New Notification</a>
+        <a href="{{ url_for('index') }}" class="btn btn-back">Back to Home</a>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>NotificationID</th>
+                    <th>AccountID</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for notification in notifications %}
+                    <tr>
+                        <td>{{ notification.NotificationID }}</td>
+                        <td>{{ notification.AccountID }}</td>
+                        <td>{{ notification.Message }}</td>
+                        <td>{{ notification.Status }}</td>
+                        <td>
+                            <a href="{{ url_for('view_notifications', notification_id=notification.NotificationID) }}" class="btn btn-view">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

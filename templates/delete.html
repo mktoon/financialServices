@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Deletion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Confirm Deletion</h1>
+        <a href="{{ url_for('index') }}" class="btn">Back to List</a>
+    </header>
+    <main>
+        <p>Please confirm to delete user?</p>
+        <form method="post">
+            <button type="submit" class="btn btn-delete">Confirm</button>
+            <a href="{{ url_for('index') }}" class="btn">Cancel</a>
+        </form>
+    </main>
+</body>
+</html>

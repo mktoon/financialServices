@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Notification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Create New Notification</h1>
+        <a href="{{ url_for('view_notifications') }}" class="btn btn-back">Back to Notifications</a>
+    </header>
+    <main>
+        <form action="{{ url_for('create_notification') }}" method="post">
+            <label for="NotificationID">Notification ID:</label>
+            <input type="number" id="NotificationID" name="NotificationID" required>
+            
+            <label for="AccountID">Account ID:</label>
+            <input type="number" id="AccountID" name="AccountID" required>
+            
+            <label for="Message">Message:</label>
+            <textarea id="Message" name="Message" required></textarea>
+            
+            <label for="Status">Status:</label>
+            <input type="text" id="Status" name="Status" required>
+            
+            <button type="submit" class="btn btn-submit">Create Notification</button>
+        </form>
+    </main>
+</body>
+</html>

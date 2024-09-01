@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>View Payment</h1>
+        <a href="{{ url_for('view_payments') }}" class="btn btn-back">Back to Payments</a>
+    </header>
+    <main>
+        <p><strong>PaymentID:</strong> {{ payment.PaymentID }}</p>
+        <p><strong>TransactionID:</strong> {{ payment.TransactionID }}</p>
+        <p><strong>Payment Date:</strong> {{ payment.PaymentDate }}</p>
+        <p><strong>Amount:</strong> {{ payment.Amount }}</p>
+        <p><strong>Payment Status:</strong> {{ payment.PaymentStatus }}</p>
+    </main>
+</body>
+</html>

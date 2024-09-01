@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Create New Payment</h1>
+        <a href="{{ url_for('view_payments') }}" class="btn btn-back">Back to Payments</a>
+    </header>
+    <main>
+        <form action="{{ url_for('create_payment') }}" method="post">
+            <label for="PaymentID">Payment ID:</label>
+            <input type="number" id="PaymentID" name="PaymentID" required>
+            
+            <label for="TransactionID">Transaction ID:</label>
+            <input type="number" id="TransactionID" name="TransactionID" required>
+            
+            <label for="PaymentDate">Payment Date:</label>
+            <input type="date" id="PaymentDate" name="PaymentDate" required>
+            <label for="Amount">Amount:</label>
+            <input type="number" step="0.01" id="Amount" name="Amount" required>
+            
+            <label for="PaymentStatus">Payment Status:</label>
+            <input type="text" id="PaymentStatus" name="PaymentStatus" required>
+            
+            <button type="submit" class="btn btn-submit">Create Payment</button>
+        </form>
+    </main>
+</body>
+</html>

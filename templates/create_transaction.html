@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Transaction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Create New Transaction</h1>
+        <a href="{{ url_for('view_transactions') }}" class="btn btn-back">Back to Transactions</a>
+    </header>
+    <main>
+        <form action="{{ url_for('create_transaction') }}" method="post">
+            <label for="TransactionID">Transaction ID:</label>
+            <input type="number" id="TransactionID" name="TransactionID" required>
+            
+            <label for="AccountID">Account ID:</label>
+            <input type="number" id="AccountID" name="AccountID" required>
+            
+            <label for="TransactionType">Transaction Type:</label>
+            <input type="text" id="TransactionType" name="TransactionType" required>
+            
+            <label for="Amount">Amount:</label>
+            <input type="number" step="0.01" id="Amount" name="Amount" required>
+            
+            <label for="TransactionDate">Transaction Date:</label>
+            <input type="date" id="TransactionDate" name="TransactionDate" required>
+            
+            <label for="Status">Status:</label>
+            <input type="text" id="Status" name="Status" required>
+            
+            <button type="submit" class="btn btn-submit">Create Transaction</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Delete Account</h1>
+    </header>
+    <main>
+        <p>Are you sure you want to delete account ID: {{ account.AccountID }}?</p>
+        <form action="{{ url_for('delete_account', account_id=account.AccountID) }}" method="post">
+            <button type="submit" class="btn btn-delete">Yes, Delete</button>
+            <a href="{{ url_for('view_accounts') }}" class="btn btn-cancel">Cancel</a>
+        </form>
+        <!-- Button to go back to the index page -->
+        <a href="{{ url_for('index') }}" class="btn btn-back">Back to Home</a>
+    </main>
+</body>
+</html>

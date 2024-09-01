@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Notification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>View Notification</h1>
+        <a href="{{ url_for('view_notifications') }}" class="btn btn-back">Back to Notifications</a>
+    </header>
+    <main>
+        <p><strong>NotificationID:</strong> {{ notification.NotificationID }}</p>
+        <p><strong>AccountID:</strong> {{ notification.AccountID }}</p>
+        <p><strong>Message:</strong> {{ notification.Message }}</p>
+        <p><strong>Status:</strong> {{ notification.Status }}</p>
+    </main>
+</body>
+</html>

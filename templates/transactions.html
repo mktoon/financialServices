@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Transaction Management</h1>
+        <a href="{{ url_for('create_transaction') }}" class="btn">Create New Transaction</a>
+        <a href="{{ url_for('index') }}" class="btn btn-back">Back to Home</a>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>TransactionID</th>
+                    <th>AccountID</th>
+                    <th>Transaction Type</th>
+                    <th>Amount</th>
+                    <th>Transaction Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction.TransactionID }}</td>
+                        <td>{{ transaction.AccountID }}</td>
+                        <td>{{ transaction.TransactionType }}</td>
+                        <td>{{ transaction.Amount }}</td>
+                        <td>{{ transaction.TransactionDate }}</td>
+                        <td>{{ transaction.Status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

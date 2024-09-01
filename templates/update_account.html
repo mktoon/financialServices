@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Update Account</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('update_account', account_id=account.AccountID) }}" method="post">
+            <label for="CustomerID">Customer ID:</label>
+            <input type="number" id="CustomerID" name="CustomerID" value="{{ account.CustomerID }}" required>
+
+            <label for="AccountType">Account Type:</label>
+            <input type="text" id="AccountType" name="AccountType" value="{{ account.AccountType }}" required>
+
+            <label for="Balance">Balance:</label>
+            <input type="number" step="0.01" id="Balance" name="Balance" value="{{ account.Balance }}" required>
+
+            <label for="DateOpened">Date Opened:</label>
+            <input type="date" id="DateOpened" name="DateOpened" value="{{ account.DateOpened }}" required>
+
+            <button type="submit" class="btn">Update Account</button>
+        </form>
+    </main>
+</body>
+</html>

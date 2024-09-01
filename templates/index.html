@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Financial Services</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('view_customers') }}">Customers</a></li>
+                <li><a href="{{ url_for('view_accounts') }}">Accounts</a></li>
+                <li><a href="{{ url_for('create_customer') }}">Create New Customer</a></li>
+                <li><a href="{{ url_for('create_account') }}">Create New Account</a></li>
+                <li><a href="{{ url_for('view_transactions') }}">Transactions</a></li>
+                <li><a href="{{ url_for('view_notifications') }}">Notifications</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Overview</h2>
+        <p>Welcome to your financial management platform. Use the navigation bar to manage customers, accounts, transactions, and notifications.</p>
+    </main>
+</body>
+</html>

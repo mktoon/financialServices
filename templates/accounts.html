@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Account Management</h1>
+        <a href="{{ url_for('create_account') }}" class="btn">Create New Account</a>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>AccountID</th>
+                    <th>CustomerID</th>
+                    <th>Account Type</th>
+                    <th>Balance</th>
+                    <th>Date Opened</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for account in accounts %}
+                    <tr>
+                        <td>{{ account.AccountID }}</td>
+                        <td>{{ account.CustomerID }}</td>
+                        <td>{{ account.AccountType }}</td>
+                        <td>{{ account.Balance }}</td>
+                        <td>{{ account.DateOpened }}</td>
+                        <td>
+                            <a href="{{ url_for('update_account', account_id=account.AccountID) }}" class="btn btn-edit">Edit</a>
+                            <a href="{{ url_for('delete_account', account_id=account.AccountID) }}" class="btn btn-delete">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- Button to go back to the index page -->
+        <a href="{{ url_for('index') }}" class="btn btn-back">Back to Home</a>
+    </main>
+</body>
+</html>
