@@ -5,25 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Services Platform</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Financial Services</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-                <li><a href="{{ url_for('view_customers') }}">Customers</a></li>
-                <li><a href="{{ url_for('view_accounts') }}">Accounts</a></li>
-                <li><a href="{{ url_for('create_customer') }}">Create New Customer</a></li>
-                <li><a href="{{ url_for('create_account') }}">Create New Account</a></li>
-                <li><a href="{{ url_for('view_transactions') }}">Transactions</a></li>
-                <li><a href="{{ url_for('view_notifications') }}">Notifications</a></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">Financial Services</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('view_customers') }}">Customers</a></li>
+                    <li><a href="{{ url_for('view_accounts') }}">Accounts</a></li>
+                    <li><a href="{{ url_for('view_transactions') }}">Transactions</a></li>
+                    <li><a href="{{ url_for('view_notifications') }}">Notifications</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <h2>Overview</h2>
-        <p>Welcome to your financial management platform. Use the navigation bar to manage customers, accounts, transactions, and notifications.</p>
+
+    <main class="homepage-content container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Welcome to Your Financial Dashboard</h2>
+            <p>Effortlessly manage customer data, monitor transactions, and stay informed with real-time notifications.</p>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <h3>Quick Overview</h3>
+            <ul class="stats-list">
+                <li><strong>Total Customers:</strong> </li>
+                <li><strong>Total Accounts:</strong> </li>
+                <li><strong>Transactions Today:</strong> </li>
+                <li><strong>Pending Notifications:</strong> </li>
+            </ul>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="button-group">
+                <a href="{{ url_for('create_customer') }}" class="btn primary">+ Add Customer</a>
+                <a href="{{ url_for('create_account') }}" class="btn primary">+ Add Account</a>
+                <a href="{{ url_for('view_transactions') }}" class="btn">View All Transactions</a>
+            </div>
+        </section>
+
+        <!-- Recent Activity Feed -->
+        <section class="activity-feed">
+            <h3>Recent Activity</h3>
+            <ul>
+                <li>✅ John Doe opened a new account - <span class="date">Mar 21</span></li>
+                <li>💰 Jane Smith deposited $1,000 - <span class="date">Mar 20</span></li>
+                <li>⚠️ Low balance alert triggered for Account #1123</li>
+            </ul>
+        </section>
     </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Financial Services Platform. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -6,22 +6,37 @@ app = Flask(__name__)
 # Create a connection to the database
 def create_connection():
     return mysql.connector.connect(
-        host="financialservicesdb.cp4o40k6mxah.us-west-1.rds.amazonaws.com",
-        user="",
-        password="",
-        database="financialServicesDB"
+        host="localhost",
+        user="root",
+        password="root",
+        database="financialservicesdb"
     )
 
 # Route to display all customers
 @app.route('/')
 def index():
-    db = create_connection()
-    cursor = db.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM Customers")
-    customers = cursor.fetchall()
-    cursor.close()
-    db.close()
-    return render_template('index.html', customers=customers)
+    # Total customers
+    total_customers = Customer.query.count()
+
+    # Total accounts
+    total_accounts = Account.query.count()
+
+    # Transactions today
+    today = date.today()
+    transactions_today = Transaction.query.filter(Transaction.date == today).count()
+
+    # Pending notifications
+    pending_notifications = Notification.query.filter_by(status='pending').count()
+
+    # Recent Activity (example: 5 most recent transactions)
+    recent_transactions = Transaction.query.order_by(Transaction.date.desc()).limit(5).all()
+
+    return render_template('index.html',
+                           total_customers=total_customers,
+                           total_accounts=total_accounts,
+                           transactions_today=transactions_today,
+                           pending_notifications=pending_notifications,
+                           recent_transactions=recent_transactions)
 
 # Route to display form for creating a new customer
 @app.route('/create', methods=['GET', 'POST'])
